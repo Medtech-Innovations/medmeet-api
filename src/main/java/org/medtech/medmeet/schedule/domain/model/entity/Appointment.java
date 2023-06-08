@@ -70,12 +70,9 @@ public class Appointment {
     @JoinColumn(name = "patient-id")
     private Patient patient;
 
+    @NotNull
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "appointment-status-id")
-    private AppointmentStatus appointmentStatus;
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "appointment", fetch = FetchType.LAZY)
-    private Collection<AppointmentNote> appointmentNotes;
+    @JoinColumn(name = "status-id")
+    private Status status;
 }

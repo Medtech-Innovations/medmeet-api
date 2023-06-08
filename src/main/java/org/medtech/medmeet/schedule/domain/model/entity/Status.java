@@ -13,7 +13,7 @@ import java.util.Collection;
 @Getter
 @Entity
 @Table(name = "appointment-status")
-public class AppointmentStatus {
+public class Status {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
