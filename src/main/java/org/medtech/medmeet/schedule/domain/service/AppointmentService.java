@@ -8,6 +8,6 @@ public interface AppointmentService {
     List<Appointment>fetchAll();
     Appointment fetchById(Integer id);
     Appointment save(Appointment appointment);
-    Appointment update(Appointment appointment);
+    Appointment update(Integer id, Appointment appointment);
     boolean deleteById(Integer id);
 }
