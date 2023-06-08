@@ -19,13 +19,8 @@ public class CreateAppointmentResource {
 
     @NotNull
     @NotBlank
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date appointmentDate;
-
-    @NotNull
-    @NotBlank
-    @DateTimeFormat(pattern = "hh:mm")
-    private Date appointmentTime;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date scheduledDate;
 
     @NotNull
     @Size(min=0, max=120)

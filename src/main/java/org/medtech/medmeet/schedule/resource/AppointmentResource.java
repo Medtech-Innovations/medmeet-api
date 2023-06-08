@@ -10,8 +10,8 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AppointmentResource {
-    private Date appointmentDate;
-    private Date appointmentTime;
+    private Integer id;
+    private Date scheduledDate;
     private Integer minutesDuration;
     private String appointmentSessionUrl;
     private String appointmentPrescriptionUrl;

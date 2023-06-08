@@ -54,24 +54,23 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
     @Override
-    public Appointment update(Integer id, Appointment appointment) {
+    public Appointment update(Appointment appointment) {
         Set<ConstraintViolation<Appointment>> violations = validator.validate(appointment);
         if (!violations.isEmpty()) {
             throw new ResourceValidationException(ENTITY, violations);
         }
 
         return appointmentRepository
-                .findById(id)
+                .findById(appointment.getId())
                 .map(appointmentToUpdate -> {
                     appointmentToUpdate.setScheduledDate(appointment.getScheduledDate());
-                    appointmentToUpdate.setScheduledTime(appointment.getScheduledTime());
                     appointmentToUpdate.setMinutesDuration(appointment.getMinutesDuration());
                     appointmentToUpdate.setAppointmentSessionUrl(appointment.getAppointmentSessionUrl());
                     appointmentToUpdate.setAppointmentPrescriptionUrl(appointment.getAppointmentPrescriptionUrl());
 
                     return appointmentRepository.save(appointmentToUpdate);
                 })
-                .orElseThrow(() -> new ResourceNotFoundException(ENTITY, id));
+                .orElseThrow(() -> new ResourceNotFoundException(ENTITY, appointment.getId()));
     }
 
     @Override

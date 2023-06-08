@@ -24,22 +24,16 @@ public class Appointment {
     private Integer id;
 
     @NotNull
-    @Column(name = "reservation_date")
+    @Column(name = "created-date")
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date reservationDate;
 
     @NotNull
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "appointment-date")
     @Temporal(TemporalType.DATE)
     private Date scheduledDate;
-
-    @NotNull
-    @DateTimeFormat(pattern = "hh:mm")
-    @Column(name = "appointment-time")
-    @Temporal(TemporalType.TIME)
-    private Date scheduledTime;
 
     @NotNull
     @Column(name = "minutes-duration")
