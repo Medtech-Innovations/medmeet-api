@@ -25,6 +25,6 @@ public class Specialty {
 
     // Relationships
     @JsonIgnore
-    @OneToMany(mappedBy = "specialties", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "specialty", fetch = FetchType.LAZY)
     private Collection<Doctor> doctors;
 }

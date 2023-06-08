@@ -25,6 +25,6 @@ public class Status {
 
     // Relationships
     @JsonIgnore
-    @OneToMany(mappedBy = "appointment-status")
+    @OneToMany(mappedBy = "status")
     private Collection<Appointment> appointments;
 }

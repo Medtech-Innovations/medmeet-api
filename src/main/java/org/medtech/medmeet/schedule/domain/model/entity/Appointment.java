@@ -8,6 +8,7 @@ import jakarta.validation.constraints.PositiveOrZero;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CurrentTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Collection;
@@ -23,23 +24,22 @@ public class Appointment {
     private Integer id;
 
     @NotNull
-    @Past
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @Column(name = "reservation-date")
-    @Temporal(TemporalType.DATE)
+    @Column(name = "reservation_date")
+    @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date reservationDate;
 
     @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "appointment-date")
     @Temporal(TemporalType.DATE)
-    private Date appointmentDate;
+    private Date scheduledDate;
 
     @NotNull
     @DateTimeFormat(pattern = "hh:mm")
     @Column(name = "appointment-time")
     @Temporal(TemporalType.TIME)
-    private Date appointmentTime;
+    private Date scheduledTime;
 
     @NotNull
     @Column(name = "minutes-duration")
@@ -56,6 +56,8 @@ public class Appointment {
     private String appointmentPrescriptionUrl;
 
     // Relationships
+
+    // From Payment Context
     @NotNull
     @Column(name = "payment-id")
     private Integer paymentId;
