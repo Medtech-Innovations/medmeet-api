@@ -1,7 +1,6 @@
 package org.medtech.medmeet.schedule.domain.service;
 
 import org.medtech.medmeet.schedule.domain.model.entity.Appointment;
-
 import java.util.List;
 
 public interface AppointmentService {

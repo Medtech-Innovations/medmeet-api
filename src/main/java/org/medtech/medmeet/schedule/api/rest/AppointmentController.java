@@ -35,7 +35,6 @@ public class AppointmentController {
         return mapper.toResource( appointmentService.save(mapper.toModel(resource)));
     }
 
-
     @PutMapping("{id}")
     public ResponseEntity<AppointmentResource>update(@PathVariable Integer id,
                                                      @RequestBody UpdateAppointmentResource resource) {

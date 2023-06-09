@@ -24,7 +24,6 @@ public class AppointmentServiceImpl implements AppointmentService {
     @Autowired
     private Validator validator;
 
-
     public AppointmentServiceImpl(AppointmentRepository _appointmentRepository, Validator _validator) {
         this.appointmentRepository = _appointmentRepository;
         this.validator = _validator;
@@ -49,7 +48,6 @@ public class AppointmentServiceImpl implements AppointmentService {
         if (!violations.isEmpty()) {
             throw new ResourceValidationException(ENTITY, violations);
         }
-
         return appointmentRepository.save(appointment);
     }
 

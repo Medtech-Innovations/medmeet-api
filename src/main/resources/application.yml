@@ -13,7 +13,7 @@ spring:
     #    JDBC : SGDB :// HOST : PORT / DB
     url: jdbc:postgresql://localhost:5432/medmeet
     username: postgres
-    password: root
+    password: admin
   jpa:
     database: postgresql
     hibernate:
