@@ -11,7 +11,7 @@ import java.util.Date;
 @AllArgsConstructor
 public class AppointmentResource {
     private Integer id;
-    private Date scheduledDate;
+    private Date appointmentDate;
     private Integer minutesDuration;
     private String appointmentSessionUrl;
     private String appointmentPrescriptionUrl;

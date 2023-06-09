@@ -3,15 +3,13 @@ package org.medtech.medmeet.schedule.domain.model.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.PositiveOrZero;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.CurrentTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Collection;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Setter
@@ -23,17 +21,14 @@ public class Appointment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotNull
-    @Column(name = "created-date")
-    @Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date reservationDate;
+    @Column(name = "created_date")
+    private LocalDateTime createdDate;
 
     @NotNull
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "appointment-date")
     @Temporal(TemporalType.DATE)
-    private Date scheduledDate;
+    private Date appointmentDate;
 
     @NotNull
     @Column(name = "minutes-duration")
@@ -56,19 +51,22 @@ public class Appointment {
     @Column(name = "payment-id")
     private Integer paymentId;
 
-    @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "doctor-id")
     private Doctor doctor;
 
-    @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "patient-id")
     private Patient patient;
 
-    @NotNull
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "status-id")
     private Status status;
+
+
+    @PrePersist
+    public void prePersist() {
+        createdDate = LocalDateTime.now();
+    }
 }

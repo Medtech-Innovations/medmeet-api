@@ -1,5 +1,6 @@
 package org.medtech.medmeet.schedule.resource;
 
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -24,11 +25,6 @@ public class UpdateAppointmentResource {
     @NotBlank
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date appointmentDate;
-
-    @NotNull
-    @NotBlank
-    @DateTimeFormat(pattern = "hh:mm")
-    private Date appointmentTime;
 
     @NotNull
     @Size(min=0, max=120)

@@ -63,7 +63,7 @@ public class AppointmentServiceImpl implements AppointmentService {
         return appointmentRepository
                 .findById(appointment.getId())
                 .map(appointmentToUpdate -> {
-                    appointmentToUpdate.setScheduledDate(appointment.getScheduledDate());
+                    appointmentToUpdate.setAppointmentDate(appointment.getAppointmentDate());
                     appointmentToUpdate.setMinutesDuration(appointment.getMinutesDuration());
                     appointmentToUpdate.setAppointmentSessionUrl(appointment.getAppointmentSessionUrl());
                     appointmentToUpdate.setAppointmentPrescriptionUrl(appointment.getAppointmentPrescriptionUrl());

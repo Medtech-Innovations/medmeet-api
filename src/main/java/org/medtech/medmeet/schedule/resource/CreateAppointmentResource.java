@@ -1,9 +1,9 @@
 package org.medtech.medmeet.schedule.resource;
 
-import jakarta.validation.constraints.Future;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.persistence.Column;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+import jakarta.validation.constraints.*;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -16,11 +16,10 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreateAppointmentResource {
-
     @NotNull
     @NotBlank
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date scheduledDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date appointmentDate;
 
     @NotNull
     @Size(min=0, max=120)
