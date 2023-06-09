@@ -4,7 +4,7 @@ import org.medtech.medmeet.authentication.domain.model.entity.User;
 import org.medtech.medmeet.authentication.resource.CreateUserResource;
 import org.medtech.medmeet.authentication.resource.UpdateUserResource;
 import org.medtech.medmeet.authentication.resource.UserResource;
-import org.medtech.medmeet.authentication.shared.mapping.EnhancedModelMapper;
+import org.medtech.medmeet.shared.mapping.EnhancedModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.Serializable;
