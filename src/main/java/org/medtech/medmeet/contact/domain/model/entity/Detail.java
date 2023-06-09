@@ -28,14 +28,12 @@ public class Detail {
     private Date detailDate;
 
     //Relationships
+    @NotNull
+    @Column(name = "user_id")
+    private Integer userId;
+    
     @JsonIgnore
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "notification_id")
     private Notification notification;
-
-    @JsonIgnore
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private User user;
-
 }

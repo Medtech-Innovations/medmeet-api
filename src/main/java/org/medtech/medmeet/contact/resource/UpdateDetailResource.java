@@ -23,6 +23,4 @@ public class UpdateDetailResource {
     @NotBlank
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date DetailtDate;
-
-
 }
