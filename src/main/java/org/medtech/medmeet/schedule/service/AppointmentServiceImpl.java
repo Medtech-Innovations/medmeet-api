@@ -67,6 +67,7 @@ public class AppointmentServiceImpl implements AppointmentService {
                     appointmentToUpdate.setMinutesDuration(appointment.getMinutesDuration());
                     appointmentToUpdate.setAppointmentSessionUrl(appointment.getAppointmentSessionUrl());
                     appointmentToUpdate.setAppointmentPrescriptionUrl(appointment.getAppointmentPrescriptionUrl());
+                    appointmentToUpdate.setPaymentId(appointment.getPaymentId());
 
                     return appointmentRepository.save(appointmentToUpdate);
                 })

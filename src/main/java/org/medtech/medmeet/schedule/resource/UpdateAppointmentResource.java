@@ -37,4 +37,7 @@ public class UpdateAppointmentResource {
     @NotNull
     @Size(max = 256)
     private String appointmentPrescriptionUrl;
+
+    @NotNull
+    private Integer paymentId;
 }
