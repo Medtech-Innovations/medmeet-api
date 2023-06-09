@@ -59,6 +59,18 @@ This project was made as an final project for the course Open Source Application
    ```sh
    git clone https://github.com/Medtech-Innovations/medmeet-api
    ```
+2. Make sure you have PosgreSQL and a database named "medmeet"
+   ```sh
+   https://www.postgresql.org/
+   ```
+3. And pgAdmin v4 installed
+   ```sh
+   https://www.pgadmin.org/
+   ```
+4. Compile and go to endpoint
+   ```sh
+   http://localhost:8105
+   ```
 
 <!-- CONTRIBUTING -->
 
