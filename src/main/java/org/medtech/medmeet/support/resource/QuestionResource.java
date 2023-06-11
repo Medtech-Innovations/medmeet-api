@@ -10,5 +10,6 @@ import lombok.*;
 public class QuestionResource {
 
     private Integer id;
+    private String firstName;
     private String question_text;
 }

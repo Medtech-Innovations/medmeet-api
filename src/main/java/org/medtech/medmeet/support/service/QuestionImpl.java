@@ -39,7 +39,7 @@ public class QuestionImpl implements QuestionService {
         if(questionRepository.existsById(id)){
             return questionRepository.findById(id);
         }else{
-            throw new ResourceNotFoundException("Question",id);
+            throw new ResourceNotFoundException(ENTITY,id);
         }
     }
 
