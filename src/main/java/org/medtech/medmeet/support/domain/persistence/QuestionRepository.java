@@ -15,7 +15,7 @@ public interface QuestionRepository extends JpaRepository<Question, Integer>{
     //Obtener todas las preguntas con una categoria especifica
     List<Question> findByCategory(Category category);
 
-    @Query("SELECT quer FROM Question quer where quer.question_text =:question_text or quer.category.name =:category")
-    List<Question> fetchByQuestion_textOrCategory(@Param("question_text")String question_text,@Param("category")String category);
+    @Query("SELECT quer FROM Question quer WHERE quer.question_text =:question_text or quer.firstName =:firstName")
+    List<Question> fetchByQuestion_textOrfirstName(@Param("question_text")String question_text,@Param("firstName")String firstName);
 
 }
