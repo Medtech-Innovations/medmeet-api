@@ -1,4 +1,4 @@
-package org.medtech.medmeet.schedule.resource;
+package org.medtech.medmeet.schedule.resource.appointment;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Temporal;
@@ -35,4 +35,7 @@ public class CreateAppointmentResource {
 
     @NotNull
     private Integer paymentId;
+
+    @NotNull
+    private Boolean status;
 }

@@ -1,4 +1,4 @@
-package org.medtech.medmeet.schedule.resource;
+package org.medtech.medmeet.schedule.resource.appointment;
 
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.Min;
@@ -37,6 +37,9 @@ public class UpdateAppointmentResource {
     @NotNull
     @Size(max = 256)
     private String appointmentPrescriptionUrl;
+
+    @NotNull
+    private Boolean status;
 
     @NotNull
     private Integer paymentId;

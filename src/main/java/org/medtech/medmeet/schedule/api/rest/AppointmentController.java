@@ -4,9 +4,9 @@ import lombok.AllArgsConstructor;
 import org.medtech.medmeet.schedule.domain.model.entity.Appointment;
 import org.medtech.medmeet.schedule.domain.service.AppointmentService;
 import org.medtech.medmeet.schedule.mapping.AppointmentMapper;
-import org.medtech.medmeet.schedule.resource.AppointmentResource;
-import org.medtech.medmeet.schedule.resource.CreateAppointmentResource;
-import org.medtech.medmeet.schedule.resource.UpdateAppointmentResource;
+import org.medtech.medmeet.schedule.resource.appointment.AppointmentResource;
+import org.medtech.medmeet.schedule.resource.appointment.CreateAppointmentResource;
+import org.medtech.medmeet.schedule.resource.appointment.UpdateAppointmentResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,7 +27,7 @@ public class AppointmentController {
 
     @GetMapping("{id}")
     public AppointmentResource fetchId(@PathVariable Integer id) {
-        return this.mapper.toResource(appointmentService.fetchById(id));
+        return this.mapper.toResource(appointmentService.fetchById(id).get());
     }
 
     @PostMapping

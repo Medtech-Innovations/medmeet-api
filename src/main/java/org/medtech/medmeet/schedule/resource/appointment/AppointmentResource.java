@@ -1,4 +1,4 @@
-package org.medtech.medmeet.schedule.resource;
+package org.medtech.medmeet.schedule.resource.appointment;
 
 import lombok.*;
 
@@ -15,4 +15,5 @@ public class AppointmentResource {
     private Integer minutesDuration;
     private String appointmentSessionUrl;
     private String appointmentPrescriptionUrl;
+    private Boolean status;
 }
