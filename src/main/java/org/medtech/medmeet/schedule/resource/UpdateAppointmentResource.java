@@ -39,5 +39,8 @@ public class UpdateAppointmentResource {
     private String appointmentPrescriptionUrl;
 
     @NotNull
+    private Boolean status;
+
+    @NotNull
     private Integer paymentId;
 }

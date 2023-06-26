@@ -35,4 +35,7 @@ public class CreateAppointmentResource {
 
     @NotNull
     private Integer paymentId;
+
+    @NotNull
+    private Boolean status;
 }

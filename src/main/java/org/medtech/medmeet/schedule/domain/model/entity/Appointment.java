@@ -44,6 +44,9 @@ public class Appointment {
     @Size(max = 256, message = "Prescription URL should not exceed 256 characters")
     private String appointmentPrescriptionUrl;
 
+    @Column(name = "status")
+    private Boolean status;
+
     // Relationships
 
     // From Payment Context
@@ -58,12 +61,6 @@ public class Appointment {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "patient-id")
     private Patient patient;
-
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "status-id")
-    private Status status;
-
 
     @PrePersist
     public void prePersist() {
