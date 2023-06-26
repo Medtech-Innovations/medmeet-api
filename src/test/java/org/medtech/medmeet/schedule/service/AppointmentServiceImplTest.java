@@ -7,7 +7,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.medtech.medmeet.schedule.domain.model.entity.Appointment;
 import org.medtech.medmeet.schedule.domain.model.entity.Doctor;
 import org.medtech.medmeet.schedule.domain.model.entity.Patient;
-import org.medtech.medmeet.schedule.domain.model.entity.Specialty;
 import org.medtech.medmeet.schedule.domain.persistence.AppointmentRepository;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -18,6 +17,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @ExtendWith(MockitoExtension.class)
 public class AppointmentServiceImplTest {
@@ -48,10 +48,35 @@ public class AppointmentServiceImplTest {
         Assertions.assertEquals(expected.get(0).getDoctor(), actual.get(0).getDoctor());
     }
 
+    @Test
+    public void testFetchById(){
+        Integer idExpected = 1;
+        Integer idActual = 1;
+        Optional<Appointment> expected = this.expectedOptionalAppointment(idExpected);
+
+        Mockito.when(appointmentRepository.existsById(Mockito.anyInt()))
+                .thenReturn(true);
+        Mockito.when(appointmentRepository.findById(Mockito.anyInt()))
+                .thenReturn(actualOptionalAppointment(idActual));
+
+        Optional<Appointment> actual = Optional.ofNullable(appointmentService.fetchById(idActual));
+
+        Assertions.assertEquals(expected.get().getId(), actual.get().getId());
+        Assertions.assertEquals(expected.get().getCreatedDate(), actual.get().getCreatedDate());
+        Assertions.assertEquals(expected.get().getAppointmentDate(), actual.get().getAppointmentDate());
+        Assertions.assertEquals(expected.get().getMinutesDuration(), actual.get().getMinutesDuration());
+        Assertions.assertEquals(expected.get().getAppointmentSessionUrl(), actual.get().getAppointmentSessionUrl());
+        Assertions.assertEquals(expected.get().getAppointmentPrescriptionUrl(), actual.get().getAppointmentPrescriptionUrl());
+        Assertions.assertEquals(expected.get().getPaymentId(), actual.get().getPaymentId());
+        Assertions.assertEquals(expected.get().getPatient(), actual.get().getPatient());
+        Assertions.assertEquals(expected.get().getDoctor(), actual.get().getDoctor());
+    }
+
+
+
 
     public List<Appointment> expectedListAppointments() {
         List<Appointment> expected = new ArrayList<>();
-        Specialty specialty = new Specialty();
         Patient patient = new Patient();
         Doctor doctor = new Doctor();
 
@@ -70,10 +95,8 @@ public class AppointmentServiceImplTest {
         expected.add(appointment);
         return expected;
     }
-
     public List<Appointment> actualListAppointments() {
         List<Appointment> expected = new ArrayList<>();
-        Specialty specialty = new Specialty();
         Patient patient = new Patient();
         Doctor doctor = new Doctor();
 
@@ -92,6 +115,28 @@ public class AppointmentServiceImplTest {
         expected.add(appointment);
         return expected;
     }
+    public Optional<Appointment> expectedOptionalAppointment(Integer id) {
+        return Optional.of(createAppointment(id));
+    }
+    public Optional<Appointment> actualOptionalAppointment(Integer id) {
+        return Optional.of(createAppointment(id));
+    }
 
+    public Appointment createAppointment(Integer id) {
+        Appointment appointment = new Appointment();
+        Patient patient = new Patient();
+        Doctor doctor = new Doctor();
 
+        appointment.setId(id);
+        appointment.setCreatedDate(LocalDateTime.now());
+        appointment.setAppointmentDate(new Date());
+        appointment.setMinutesDuration(120);
+        appointment.setAppointmentSessionUrl("https://www.google.com");
+        appointment.setAppointmentPrescriptionUrl("https://www.prescription.com");
+        appointment.setPaymentId(1);
+        appointment.setPatient(patient);
+        appointment.setDoctor(doctor);
+        appointment.setStatus(true);
+        return appointment;
+    }
 }
