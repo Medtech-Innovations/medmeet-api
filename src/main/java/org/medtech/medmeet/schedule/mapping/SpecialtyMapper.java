@@ -1,7 +1,9 @@
 package org.medtech.medmeet.schedule.mapping;
 
 import org.medtech.medmeet.schedule.domain.model.entity.Specialty;
-import org.medtech.medmeet.schedule.resource.*;
+import org.medtech.medmeet.schedule.resource.specialty.CreateSpecialtyResource;
+import org.medtech.medmeet.schedule.resource.specialty.SpecialtyResource;
+import org.medtech.medmeet.schedule.resource.specialty.UpdateSpecialtyResource;
 import org.medtech.medmeet.shared.mapping.EnhancedModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 

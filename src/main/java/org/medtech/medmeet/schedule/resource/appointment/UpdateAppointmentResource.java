@@ -1,4 +1,4 @@
-package org.medtech.medmeet.schedule.resource;
+package org.medtech.medmeet.schedule.resource.appointment;
 
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.Min;

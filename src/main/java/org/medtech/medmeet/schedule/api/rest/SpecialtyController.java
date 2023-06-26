@@ -1,13 +1,12 @@
 package org.medtech.medmeet.schedule.api.rest;
 
 import lombok.AllArgsConstructor;
-import org.medtech.medmeet.schedule.domain.model.entity.Appointment;
 import org.medtech.medmeet.schedule.domain.model.entity.Specialty;
-import org.medtech.medmeet.schedule.domain.service.AppointmentService;
 import org.medtech.medmeet.schedule.domain.service.SpecialtyService;
-import org.medtech.medmeet.schedule.mapping.AppointmentMapper;
 import org.medtech.medmeet.schedule.mapping.SpecialtyMapper;
-import org.medtech.medmeet.schedule.resource.*;
+import org.medtech.medmeet.schedule.resource.specialty.CreateSpecialtyResource;
+import org.medtech.medmeet.schedule.resource.specialty.SpecialtyResource;
+import org.medtech.medmeet.schedule.resource.specialty.UpdateSpecialtyResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

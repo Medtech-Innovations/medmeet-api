@@ -1,4 +1,4 @@
-package org.medtech.medmeet.schedule.resource;
+package org.medtech.medmeet.schedule.resource.appointment;
 
 import lombok.*;
 

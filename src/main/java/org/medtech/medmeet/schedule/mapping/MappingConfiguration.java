@@ -15,4 +15,9 @@ public class MappingConfiguration {
     public SpecialtyMapper specialtyMapper() {
         return new SpecialtyMapper();
     }
+
+    @Bean
+    public DoctorMapper doctorMapper() {
+        return new DoctorMapper();
+    }
 }

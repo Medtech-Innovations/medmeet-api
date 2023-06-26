@@ -1,4 +1,4 @@
-package org.medtech.medmeet.schedule.resource;
+package org.medtech.medmeet.schedule.resource.specialty;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
