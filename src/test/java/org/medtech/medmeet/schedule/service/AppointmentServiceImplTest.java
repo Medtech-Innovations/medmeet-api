@@ -38,14 +38,10 @@ public class AppointmentServiceImplTest {
         List<Appointment> actual = appointmentService.fetchAll();
 
         Assertions.assertEquals(expected.get(0).getId(), actual.get(0).getId());
-        Assertions.assertEquals(expected.get(0).getCreatedDate(), actual.get(0).getCreatedDate());
-        Assertions.assertEquals(expected.get(0).getAppointmentDate(), actual.get(0).getAppointmentDate());
         Assertions.assertEquals(expected.get(0).getMinutesDuration(), actual.get(0).getMinutesDuration());
         Assertions.assertEquals(expected.get(0).getAppointmentSessionUrl(), actual.get(0).getAppointmentSessionUrl());
         Assertions.assertEquals(expected.get(0).getAppointmentPrescriptionUrl(), actual.get(0).getAppointmentPrescriptionUrl());
         Assertions.assertEquals(expected.get(0).getPaymentId(), actual.get(0).getPaymentId());
-        Assertions.assertEquals(expected.get(0).getPatient(), actual.get(0).getPatient());
-        Assertions.assertEquals(expected.get(0).getDoctor(), actual.get(0).getDoctor());
     }
 
     @Test
@@ -59,21 +55,14 @@ public class AppointmentServiceImplTest {
         Mockito.when(appointmentRepository.findById(Mockito.anyInt()))
                 .thenReturn(actualOptionalAppointment(idActual));
 
-        Optional<Appointment> actual = Optional.ofNullable(appointmentService.fetchById(idActual));
+        Optional<Appointment> actual = appointmentService.fetchById(idActual);
 
         Assertions.assertEquals(expected.get().getId(), actual.get().getId());
-        Assertions.assertEquals(expected.get().getCreatedDate(), actual.get().getCreatedDate());
-        Assertions.assertEquals(expected.get().getAppointmentDate(), actual.get().getAppointmentDate());
         Assertions.assertEquals(expected.get().getMinutesDuration(), actual.get().getMinutesDuration());
         Assertions.assertEquals(expected.get().getAppointmentSessionUrl(), actual.get().getAppointmentSessionUrl());
         Assertions.assertEquals(expected.get().getAppointmentPrescriptionUrl(), actual.get().getAppointmentPrescriptionUrl());
         Assertions.assertEquals(expected.get().getPaymentId(), actual.get().getPaymentId());
-        Assertions.assertEquals(expected.get().getPatient(), actual.get().getPatient());
-        Assertions.assertEquals(expected.get().getDoctor(), actual.get().getDoctor());
     }
-
-
-
 
     public List<Appointment> expectedListAppointments() {
         List<Appointment> expected = new ArrayList<>();

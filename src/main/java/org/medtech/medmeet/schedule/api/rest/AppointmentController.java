@@ -27,7 +27,7 @@ public class AppointmentController {
 
     @GetMapping("{id}")
     public AppointmentResource fetchId(@PathVariable Integer id) {
-        return this.mapper.toResource(appointmentService.fetchById(id));
+        return this.mapper.toResource(appointmentService.fetchById(id).get());
     }
 
     @PostMapping
