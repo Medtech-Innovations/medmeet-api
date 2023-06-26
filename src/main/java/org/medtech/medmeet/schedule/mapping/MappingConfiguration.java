@@ -7,7 +7,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration("scheduleMappingConfiguration")
 public class MappingConfiguration {
     @Bean
-    public AppointmentMapper studentMapper() {
+    public AppointmentMapper appointmentMapper() {
         return new AppointmentMapper();
+    }
+
+    @Bean
+    public SpecialtyMapper specialtyMapper() {
+        return new SpecialtyMapper();
     }
 }
