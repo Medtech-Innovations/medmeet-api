@@ -17,7 +17,10 @@ public class ResourceValidationException extends RuntimeException{
         super(violations.stream()
                 .map(violation -> String.format("%s : %s", violation.getPropertyPath(), violation.getMessage()))
                 .collect(Collectors.joining(", ") ) );
-        StackTraceElement[] traceElements = {};
-        this.setStackTrace(traceElements);
+    }
+
+    @Override
+    public synchronized Throwable fillInStackTrace() {
+        return null;
     }
 }

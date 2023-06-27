@@ -4,7 +4,9 @@ public class ResourceNotFoundException extends RuntimeException{
 
     public ResourceNotFoundException(String resourceName, Integer resourceId) {
         super(String.format("%s with id %d not found.", resourceName, resourceId));
-        StackTraceElement[] traceElements = {};
-        this.setStackTrace(traceElements);
+    }
+    @Override
+    public synchronized Throwable fillInStackTrace() {
+        return null;
     }
 }
