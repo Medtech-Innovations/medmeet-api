@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.medtech.medmeet.schedule.domain.model.entity.Appointment;
 import org.medtech.medmeet.schedule.domain.model.entity.Doctor;
-import org.medtech.medmeet.schedule.domain.model.entity.Patient;
 import org.medtech.medmeet.schedule.domain.persistence.AppointmentRepository;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -41,6 +40,7 @@ public class AppointmentServiceImplTest {
         Assertions.assertEquals(expected.get(0).getMinutesDuration(), actual.get(0).getMinutesDuration());
         Assertions.assertEquals(expected.get(0).getAppointmentSessionUrl(), actual.get(0).getAppointmentSessionUrl());
         Assertions.assertEquals(expected.get(0).getAppointmentPrescriptionUrl(), actual.get(0).getAppointmentPrescriptionUrl());
+        Assertions.assertEquals(expected.get(0).getUserId(), actual.get(0).getUserId());
         Assertions.assertEquals(expected.get(0).getPaymentId(), actual.get(0).getPaymentId());
     }
 
@@ -61,15 +61,16 @@ public class AppointmentServiceImplTest {
         Assertions.assertEquals(expected.get().getMinutesDuration(), actual.get().getMinutesDuration());
         Assertions.assertEquals(expected.get().getAppointmentSessionUrl(), actual.get().getAppointmentSessionUrl());
         Assertions.assertEquals(expected.get().getAppointmentPrescriptionUrl(), actual.get().getAppointmentPrescriptionUrl());
+        Assertions.assertEquals(expected.get().getUserId(), actual.get().getUserId());
         Assertions.assertEquals(expected.get().getPaymentId(), actual.get().getPaymentId());
     }
 
     public List<Appointment> expectedListAppointments() {
         List<Appointment> expected = new ArrayList<>();
-        Patient patient = new Patient();
         Doctor doctor = new Doctor();
 
         Appointment appointment = new Appointment();
+
         appointment.setId(1);
         appointment.setCreatedDate(LocalDateTime.now());
         appointment.setAppointmentDate(new Date());
@@ -77,7 +78,7 @@ public class AppointmentServiceImplTest {
         appointment.setAppointmentSessionUrl("https://www.google.com");
         appointment.setAppointmentPrescriptionUrl("https://www.prescription.com");
         appointment.setPaymentId(1);
-        appointment.setPatient(patient);
+        appointment.setUserId(1);
         appointment.setDoctor(doctor);
         appointment.setStatus(true);
 
@@ -86,7 +87,6 @@ public class AppointmentServiceImplTest {
     }
     public List<Appointment> actualListAppointments() {
         List<Appointment> expected = new ArrayList<>();
-        Patient patient = new Patient();
         Doctor doctor = new Doctor();
 
         Appointment appointment = new Appointment();
@@ -97,7 +97,7 @@ public class AppointmentServiceImplTest {
         appointment.setAppointmentSessionUrl("https://www.google.com");
         appointment.setAppointmentPrescriptionUrl("https://www.prescription.com");
         appointment.setPaymentId(1);
-        appointment.setPatient(patient);
+        appointment.setUserId(1);
         appointment.setDoctor(doctor);
         appointment.setStatus(true);
 
@@ -113,7 +113,6 @@ public class AppointmentServiceImplTest {
 
     public Appointment createAppointment(Integer id) {
         Appointment appointment = new Appointment();
-        Patient patient = new Patient();
         Doctor doctor = new Doctor();
 
         appointment.setId(id);
@@ -123,7 +122,7 @@ public class AppointmentServiceImplTest {
         appointment.setAppointmentSessionUrl("https://www.google.com");
         appointment.setAppointmentPrescriptionUrl("https://www.prescription.com");
         appointment.setPaymentId(1);
-        appointment.setPatient(patient);
+        appointment.setUserId(1);
         appointment.setDoctor(doctor);
         appointment.setStatus(true);
         return appointment;

@@ -13,4 +13,7 @@ public class CreateSpecialtyResource {
     @NotNull
     @Size(max = 128)
     private String name;
+
+    @Size(max = 512)
+    private String description;
 }

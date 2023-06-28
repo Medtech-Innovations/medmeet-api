@@ -42,5 +42,6 @@ public class UpdateAppointmentResource {
     private Boolean status;
 
     @NotNull
-    private Integer paymentId;
+    @Size(min=0)
+    private Integer userId;
 }

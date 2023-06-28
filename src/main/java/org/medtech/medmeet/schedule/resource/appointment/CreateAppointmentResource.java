@@ -34,7 +34,8 @@ public class CreateAppointmentResource {
     private String appointmentPrescriptionUrl;
 
     @NotNull
-    private Integer paymentId;
+    @Size(min=0)
+    private Integer userId;
 
     @NotNull
     private Boolean status;
