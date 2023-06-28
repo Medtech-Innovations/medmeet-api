@@ -1,5 +1,6 @@
 package org.medtech.medmeet.schedule.resource.doctor;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Getter

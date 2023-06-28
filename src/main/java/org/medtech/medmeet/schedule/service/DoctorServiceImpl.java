@@ -54,6 +54,7 @@ public class DoctorServiceImpl implements DoctorService {
         if (!violations.isEmpty()) {
             throw new ResourceValidationException(ENTITY, violations);
         }
+
         return doctorRepository.save(doctor);
     }
 

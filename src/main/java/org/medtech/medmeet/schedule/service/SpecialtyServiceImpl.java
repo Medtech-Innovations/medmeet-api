@@ -52,6 +52,11 @@ public class SpecialtyServiceImpl implements SpecialtyService {
         if (!violations.isEmpty()) {
             throw new ResourceValidationException(ENTITY, violations);
         }
+
+        if (specialtyRepository.findByName(specialty.getName()).isPresent()) {
+            throw new ResourceValidationException(ENTITY, "name already exists in database");
+        }
+
         return specialtyRepository.save(specialty);
     }
 
@@ -66,6 +71,7 @@ public class SpecialtyServiceImpl implements SpecialtyService {
                 .findById(specialty.getId())
                 .map(specialtyToUpdate -> {
                     specialtyToUpdate.setName(specialty.getName());
+                    specialtyToUpdate.setDescription(specialty.getDescription());
 
                     return specialtyRepository.save(specialtyToUpdate);
                 })

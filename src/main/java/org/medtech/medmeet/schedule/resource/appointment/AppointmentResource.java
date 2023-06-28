@@ -15,5 +15,6 @@ public class AppointmentResource {
     private Integer minutesDuration;
     private String appointmentSessionUrl;
     private String appointmentPrescriptionUrl;
+    private Integer userId;
     private Boolean status;
 }

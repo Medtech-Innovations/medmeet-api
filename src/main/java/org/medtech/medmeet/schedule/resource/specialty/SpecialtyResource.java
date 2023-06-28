@@ -10,4 +10,5 @@ import lombok.*;
 public class SpecialtyResource {
     private Integer id;
     private String name;
+    private String description;
 }

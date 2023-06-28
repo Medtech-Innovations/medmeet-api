@@ -7,7 +7,7 @@ import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Collection;
+import java.util.Set;
 
 @Setter
 @Getter
@@ -23,8 +23,12 @@ public class Specialty {
     @Size(min = 3, max = 50)
     private String name;
 
+    @Column(name = "description")
+    @Size(max = 512)
+    private String description;
+
     // Relationships
     @JsonIgnore
-    @OneToMany(mappedBy = "specialty", fetch = FetchType.LAZY)
-    private Collection<Doctor> doctors;
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<Doctor> doctors;
 }

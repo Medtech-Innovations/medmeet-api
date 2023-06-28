@@ -16,11 +16,9 @@ public class Doctor {
 
     // Relationships
     @NotNull
-    @Column(name = "user_id")
     private Integer userId;
 
     @ManyToOne
-    @NotNull
     @JoinColumn(name = "specialty_id")
     private Specialty specialty;
 }
