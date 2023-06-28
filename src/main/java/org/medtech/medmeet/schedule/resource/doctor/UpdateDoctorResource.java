@@ -17,5 +17,10 @@ public class UpdateDoctorResource {
     private Integer id;
 
     @NotNull
+    @NotBlank
     private Integer userId;
+
+    @NotNull
+    @NotBlank
+    private Integer specialtyId;
 }

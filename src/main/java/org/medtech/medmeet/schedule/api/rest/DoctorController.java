@@ -1,7 +1,9 @@
 package org.medtech.medmeet.schedule.api.rest;
 
+import jakarta.validation.Validator;
 import lombok.AllArgsConstructor;
 import org.medtech.medmeet.schedule.domain.model.entity.Doctor;
+import org.medtech.medmeet.schedule.domain.persistence.SpecialtyRepository;
 import org.medtech.medmeet.schedule.domain.service.DoctorService;
 import org.medtech.medmeet.schedule.mapping.DoctorMapper;
 import org.medtech.medmeet.schedule.resource.doctor.CreateDoctorResource;
@@ -18,6 +20,8 @@ import java.util.List;
 @AllArgsConstructor
 public class DoctorController {
     private final DoctorService doctorService;
+    private final SpecialtyRepository specialtyRepository;
+    private Validator validator;
     private final DoctorMapper mapper;
 
     @GetMapping
@@ -32,7 +36,7 @@ public class DoctorController {
 
     @PostMapping
     public DoctorResource save(@RequestBody CreateDoctorResource resource) {
-        return mapper.toResource(doctorService.save(mapper.toModel(resource)));
+        return mapper.toResource(doctorService.save(mapper.toModel(resource), resource.getAssignedSpecialtyId()));
     }
 
     @PutMapping("{id}")
@@ -40,7 +44,7 @@ public class DoctorController {
                                                     @RequestBody UpdateDoctorResource resource) {
         if (id.equals(resource.getId())) {
             DoctorResource doctorResource = mapper.toResource(
-                    doctorService.update(mapper.toModel(resource)));
+                    doctorService.updateSpecialty(mapper.toModel(resource), resource.getSpecialtyId()));
             return new ResponseEntity<>(doctorResource, HttpStatus.OK);
         } else {
             return ResponseEntity.badRequest().build();
