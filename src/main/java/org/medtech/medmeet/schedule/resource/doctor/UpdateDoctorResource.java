@@ -20,4 +20,8 @@ public class UpdateDoctorResource {
     @NotNull
     @NotBlank
     private Integer userId;
+
+    @NotNull
+    @NotBlank
+    private Integer specialtyId;
 }
