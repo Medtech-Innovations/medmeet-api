@@ -1,11 +1,6 @@
 package org.medtech.medmeet.schedule.mapping;
 
-import org.medtech.medmeet.schedule.domain.model.entity.Appointment;
 import org.medtech.medmeet.schedule.domain.model.entity.Doctor;
-import org.medtech.medmeet.schedule.domain.model.entity.Specialty;
-import org.medtech.medmeet.schedule.domain.persistence.SpecialtyRepository;
-import org.medtech.medmeet.schedule.resource.appointment.AppointmentResource;
-import org.medtech.medmeet.schedule.resource.appointment.UpdateAppointmentResource;
 import org.medtech.medmeet.schedule.resource.doctor.CreateDoctorResource;
 import org.medtech.medmeet.schedule.resource.doctor.DoctorResource;
 import org.medtech.medmeet.schedule.resource.doctor.UpdateDoctorResource;

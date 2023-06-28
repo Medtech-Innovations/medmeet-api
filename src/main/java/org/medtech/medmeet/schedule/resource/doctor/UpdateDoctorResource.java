@@ -4,7 +4,6 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
-import org.medtech.medmeet.schedule.domain.model.entity.Specialty;
 
 @Getter
 @Setter

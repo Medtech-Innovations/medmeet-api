@@ -1,8 +1,5 @@
 package org.medtech.medmeet.schedule.resource.appointment;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.*;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
