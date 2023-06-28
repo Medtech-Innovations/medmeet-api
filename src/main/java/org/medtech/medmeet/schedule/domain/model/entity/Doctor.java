@@ -18,7 +18,7 @@ public class Doctor {
     @NotNull
     private Integer userId;
 
-    @ManyToOne
-    @JoinColumn(name = "specialty_id")
+    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    @JoinColumn(name = "specialty_id", nullable = false)
     private Specialty specialty;
 }

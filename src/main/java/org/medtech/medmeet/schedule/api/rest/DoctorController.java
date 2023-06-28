@@ -1,12 +1,17 @@
 package org.medtech.medmeet.schedule.api.rest;
 
+import jakarta.validation.Validator;
 import lombok.AllArgsConstructor;
 import org.medtech.medmeet.schedule.domain.model.entity.Doctor;
+import org.medtech.medmeet.schedule.domain.model.entity.Specialty;
+import org.medtech.medmeet.schedule.domain.persistence.SpecialtyRepository;
 import org.medtech.medmeet.schedule.domain.service.DoctorService;
+import org.medtech.medmeet.schedule.domain.service.SpecialtyService;
 import org.medtech.medmeet.schedule.mapping.DoctorMapper;
 import org.medtech.medmeet.schedule.resource.doctor.CreateDoctorResource;
 import org.medtech.medmeet.schedule.resource.doctor.DoctorResource;
 import org.medtech.medmeet.schedule.resource.doctor.UpdateDoctorResource;
+import org.medtech.medmeet.shared.exception.ResourceValidationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +23,8 @@ import java.util.List;
 @AllArgsConstructor
 public class DoctorController {
     private final DoctorService doctorService;
+    private final SpecialtyRepository specialtyRepository;
+    private Validator validator;
     private final DoctorMapper mapper;
 
     @GetMapping

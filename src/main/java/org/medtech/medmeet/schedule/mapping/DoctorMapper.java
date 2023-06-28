@@ -2,6 +2,8 @@ package org.medtech.medmeet.schedule.mapping;
 
 import org.medtech.medmeet.schedule.domain.model.entity.Appointment;
 import org.medtech.medmeet.schedule.domain.model.entity.Doctor;
+import org.medtech.medmeet.schedule.domain.model.entity.Specialty;
+import org.medtech.medmeet.schedule.domain.persistence.SpecialtyRepository;
 import org.medtech.medmeet.schedule.resource.appointment.AppointmentResource;
 import org.medtech.medmeet.schedule.resource.appointment.UpdateAppointmentResource;
 import org.medtech.medmeet.schedule.resource.doctor.CreateDoctorResource;
@@ -16,9 +18,7 @@ public class DoctorMapper implements Serializable {
     @Autowired
     EnhancedModelMapper mapper;
 
-    public Doctor toModel(CreateDoctorResource resource) {
-        return this.mapper.map(resource, Doctor.class);
-    }
+    public Doctor toModel(CreateDoctorResource resource) { return this.mapper.map(resource, Doctor.class); }
     public Doctor toModel(UpdateDoctorResource resource) {
         return this.mapper.map(resource, Doctor.class);
     }

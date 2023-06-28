@@ -3,6 +3,7 @@ package org.medtech.medmeet.schedule.resource.specialty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
+import org.medtech.medmeet.schedule.domain.model.entity.Specialty;
 
 @Getter
 @Setter
