@@ -21,7 +21,7 @@ import java.util.List;
 
 @Tag(name = "Details", description = "Create, Read, Update ande delete details entities")
 @RestController
-@RequestMapping("details")
+@RequestMapping("api/v1/details")
 @AllArgsConstructor
 public class DetailController {
     private final DetailService detailService;

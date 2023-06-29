@@ -21,7 +21,7 @@ import java.util.List;
 
 @Tag(name = "Users", description = "Create, Read, Update ande delete users entities")
 @RestController
-@RequestMapping("users")
+@RequestMapping("api/v1/users")
 @AllArgsConstructor
 public class UserController {
     private final UserService userService;

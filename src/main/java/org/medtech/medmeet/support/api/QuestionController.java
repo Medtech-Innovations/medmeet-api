@@ -21,7 +21,7 @@ import java.util.List;
 
 @Tag(name = "Questions", description = "Create, Read, Update ande delete questions entities")
 @RestController
-@RequestMapping("questions")
+@RequestMapping("api/v1/questions")
 @AllArgsConstructor
 public class QuestionController {
 

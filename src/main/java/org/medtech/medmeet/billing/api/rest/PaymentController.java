@@ -21,7 +21,7 @@ import java.util.List;
 
 @Tag(name = "Payments", description = "Create, Read, Update ande delete payments entities")
 @RestController
-@RequestMapping("payments")
+@RequestMapping("api/v1/payments")
 @AllArgsConstructor
 public class PaymentController {
 
