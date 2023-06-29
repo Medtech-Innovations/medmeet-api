@@ -7,7 +7,7 @@ import java.util.Optional;
 public interface AppointmentService {
     List<Appointment>fetchAll();
     Optional<Appointment> fetchById(Integer id);
-    Appointment save(Appointment appointment);
+    Appointment save(Appointment appointment, Integer givenDoctorId);
     Appointment update(Appointment appointment);
     boolean deleteById(Integer id);
 }

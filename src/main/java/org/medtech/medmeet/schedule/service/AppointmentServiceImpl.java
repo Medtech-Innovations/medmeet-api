@@ -47,11 +47,16 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
     @Override
-    public Appointment save(Appointment appointment) {
+    public Appointment save(Appointment appointment, Integer givenDoctorId) {
         Set<ConstraintViolation<Appointment>> violations = validator.validate(appointment);
         if (!violations.isEmpty()) {
             throw new ResourceValidationException(ENTITY, violations);
         }
+
+        if (givenDoctorId == null) {
+            throw new ResourceValidationException("Doctor ID", "Assigned Doctor ID cannot be null. Provide a givenDoctorId parameter.");
+        }
+
         return appointmentRepository.save(appointment);
     }
 

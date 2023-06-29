@@ -36,4 +36,12 @@ public class UpdateUserResource {
     @NotBlank
     @Size(min = 2, max = 30)
     private String password;
+
+    @NotNull
+    @NotBlank
+    @Size(min = 1, max = 512)
+    private String profileImageUrl;
+
+    @NotNull
+    private Boolean isPatient;
 }

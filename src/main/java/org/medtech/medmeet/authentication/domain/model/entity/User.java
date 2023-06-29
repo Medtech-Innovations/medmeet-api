@@ -41,4 +41,13 @@ public class User {
     @Column(name = "password", length = 30, nullable = false)
     private String password;
 
+    @NotNull
+    @NotBlank
+    @Size(min = 1, max = 512)
+    @Column(name = "profile_image_url", nullable = false)
+    private String profileImageUrl;
+
+    @NotNull
+    @Column(name = "is_patient", nullable = false)
+    private Boolean isPatient;
 }
