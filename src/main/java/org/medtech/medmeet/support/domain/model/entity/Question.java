@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,6 +15,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "questions")
+@AllArgsConstructor
 public class Question {
 
     @Id
@@ -34,4 +36,14 @@ public class Question {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private Category category;
+
+    public Question() {
+
+    }
+
+    public Question(Integer id, String firstName, String questionText) {
+        this.Id=id;
+        this.firstName=firstName;
+        this.question_text=questionText;
+    }
 }
