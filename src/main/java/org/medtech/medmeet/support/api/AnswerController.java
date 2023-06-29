@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("answers")
+@RequestMapping("api/v1/answers")
 @AllArgsConstructor
 public class AnswerController {
 }

@@ -20,7 +20,7 @@ import java.util.List;
 
 @Tag(name = "Appointments", description = "Create, Read, Update ande delete appointments entities")
 @RestController
-@RequestMapping("appointments")
+@RequestMapping("api/v1/appointments")
 @AllArgsConstructor
 public class AppointmentController {
     private final AppointmentService appointmentService;

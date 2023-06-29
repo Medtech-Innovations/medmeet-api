@@ -21,7 +21,7 @@ import java.util.List;
 
 @Tag(name = "Specialties", description = "Create, Read, Update ande delete specialties entities")
 @RestController
-@RequestMapping("specialties")
+@RequestMapping("api/v1/specialties")
 @AllArgsConstructor
 public class SpecialtyController {
     private final SpecialtyService specialtyService;

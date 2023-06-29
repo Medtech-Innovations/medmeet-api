@@ -23,7 +23,7 @@ import java.util.List;
 
 @Tag(name = "Doctors", description = "Create, Read, Update ande delete doctors entities")
 @RestController
-@RequestMapping("doctors")
+@RequestMapping("api/v1/doctors")
 @AllArgsConstructor
 public class DoctorController {
     private final DoctorService doctorService;
