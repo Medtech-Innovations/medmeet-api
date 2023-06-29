@@ -13,7 +13,6 @@ public class CreateDoctorResource {
     private Integer userId;
 
     @NotNull
-
     private Integer stars;
 
     @NotNull
