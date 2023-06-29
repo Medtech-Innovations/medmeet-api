@@ -27,13 +27,15 @@ import java.util.List;
 @AllArgsConstructor
 public class DoctorController {
     private final DoctorService doctorService;
+    private final SpecialtyRepository specialtyRepository;
+    private Validator validator;
     private final DoctorMapper mapper;
 
     @Operation(summary = "Get all registered doctors", responses = {
             @ApiResponse(description = "Successfully fetched all doctors",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = DoctorResource.class)))
+                            schema = @Schema(implementation = AppointmentResource.class)))
     })
     @GetMapping
     public List<Doctor> fetchAll() {
@@ -44,7 +46,7 @@ public class DoctorController {
             @ApiResponse(description = "Successfully fetched doctor by id",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = DoctorResource.class)))
+                            schema = @Schema(implementation = AppointmentResource.class)))
     })
     @GetMapping("{id}")
     public DoctorResource fetchById(@PathVariable Integer id) {
@@ -55,7 +57,7 @@ public class DoctorController {
             @ApiResponse(description = "Doctor successfully created",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = DoctorResource.class)))
+                            schema = @Schema(implementation = AppointmentResource.class)))
     })
     @PostMapping
     public DoctorResource save(@RequestBody CreateDoctorResource resource) {
@@ -66,11 +68,11 @@ public class DoctorController {
             @ApiResponse(description = "Successfully updated doctor by id",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = DoctorResource.class)))
+                            schema = @Schema(implementation = AppointmentResource.class)))
     })
     @PutMapping("{id}")
     public ResponseEntity<DoctorResource> update(@PathVariable Integer id,
-                                                    @RequestBody UpdateDoctorResource resource) {
+                                                 @RequestBody UpdateDoctorResource resource) {
         if (id.equals(resource.getId())) {
             DoctorResource doctorResource = mapper.toResource(
                     doctorService.updateSpecialty(mapper.toModel(resource), resource.getGivenSpecialtyId()));
@@ -84,7 +86,7 @@ public class DoctorController {
             @ApiResponse(description = "Successfully deleted doctor by id",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = DoctorResource.class)))
+                            schema = @Schema(implementation = AppointmentResource.class)))
     })
     @DeleteMapping("{id}")
     public ResponseEntity<?> delete(@PathVariable Integer id) {

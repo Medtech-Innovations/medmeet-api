@@ -31,7 +31,7 @@ public class SpecialtyController {
             @ApiResponse(description = "Successfully fetched all specialties",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = SpecialtyResource.class)))
+                            schema = @Schema(implementation = AppointmentResource.class)))
     })
     @GetMapping
     public List<Specialty> fetchAll() {
@@ -42,7 +42,7 @@ public class SpecialtyController {
             @ApiResponse(description = "Successfully fetched specialty by id",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = SpecialtyResource.class)))
+                            schema = @Schema(implementation = AppointmentResource.class)))
     })
     @GetMapping("{id}")
     public SpecialtyResource fetchId(@PathVariable Integer id) {
@@ -53,7 +53,7 @@ public class SpecialtyController {
             @ApiResponse(description = "Specialty successfully created",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = SpecialtyResource.class)))
+                            schema = @Schema(implementation = AppointmentResource.class)))
     })
     @PostMapping
     public SpecialtyResource save(@RequestBody CreateSpecialtyResource resource) {
@@ -64,11 +64,11 @@ public class SpecialtyController {
             @ApiResponse(description = "Successfully updated specialty by id",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = SpecialtyResource.class)))
+                            schema = @Schema(implementation = AppointmentResource.class)))
     })
     @PutMapping("{id}")
     public ResponseEntity<SpecialtyResource> update(@PathVariable Integer id,
-                                                      @RequestBody UpdateSpecialtyResource resource) {
+                                                    @RequestBody UpdateSpecialtyResource resource) {
         if (id.equals(resource.getId())) {
             SpecialtyResource specialtyResource = mapper.toResource(
                     specialtyService.update(mapper.toModel(resource)));
@@ -82,7 +82,7 @@ public class SpecialtyController {
             @ApiResponse(description = "Successfully deleted specialty by id",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = SpecialtyResource.class)))
+                            schema = @Schema(implementation = AppointmentResource.class)))
     })
     @DeleteMapping("{id}")
     public ResponseEntity<?> delete(@PathVariable Integer id) {

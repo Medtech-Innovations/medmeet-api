@@ -56,7 +56,7 @@ public class AppointmentController {
     })
     @PostMapping
     public AppointmentResource save(@RequestBody CreateAppointmentResource resource) {
-        return mapper.toResource(appointmentService.save(mapper.toModel(resource), resource.getGivenDoctorId()));
+        return mapper.toResource( appointmentService.save(mapper.toModel(resource), resource.getGivenDoctorId()));
     }
 
     @Operation(summary = "Update an appointment by id", responses = {

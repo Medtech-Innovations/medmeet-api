@@ -36,4 +36,7 @@ public class CreateAppointmentResource {
 
     @NotNull
     private Boolean status;
+
+    @NotNull
+    private Integer givenDoctorId;
 }
