@@ -13,5 +13,12 @@ public class CreateDoctorResource {
     private Integer userId;
 
     @NotNull
-    private Integer assignedSpecialtyId;
+
+    private Integer stars;
+
+    @NotNull
+    private Integer price;
+
+    @NotNull
+    private Integer givenSpecialtyId;
 }
