@@ -43,4 +43,8 @@ public class UpdateAppointmentResource {
     @NotNull
     @Size(min=0)
     private Integer userId;
+
+    @NotNull
+    @NotBlank
+    private Integer givenDoctorId;
 }

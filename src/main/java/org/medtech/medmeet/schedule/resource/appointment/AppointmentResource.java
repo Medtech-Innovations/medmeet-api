@@ -1,6 +1,9 @@
 package org.medtech.medmeet.schedule.resource.appointment;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
+import org.medtech.medmeet.schedule.domain.model.entity.Doctor;
 
 import java.util.Date;
 
@@ -17,4 +20,5 @@ public class AppointmentResource {
     private String appointmentPrescriptionUrl;
     private Integer userId;
     private Boolean status;
+    private Doctor doctor;
 }
