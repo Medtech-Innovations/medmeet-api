@@ -72,7 +72,7 @@ public class DoctorController {
     })
     @PutMapping("{id}")
     public ResponseEntity<DoctorResource> update(@PathVariable Integer id,
-                                                    @RequestBody UpdateDoctorResource resource) {
+                                                 @RequestBody UpdateDoctorResource resource) {
         if (id.equals(resource.getId())) {
             DoctorResource doctorResource = mapper.toResource(
                     doctorService.updateSpecialty(mapper.toModel(resource), resource.getGivenSpecialtyId()));

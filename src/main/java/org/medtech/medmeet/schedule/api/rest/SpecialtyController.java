@@ -68,7 +68,7 @@ public class SpecialtyController {
     })
     @PutMapping("{id}")
     public ResponseEntity<SpecialtyResource> update(@PathVariable Integer id,
-                                                      @RequestBody UpdateSpecialtyResource resource) {
+                                                    @RequestBody UpdateSpecialtyResource resource) {
         if (id.equals(resource.getId())) {
             SpecialtyResource specialtyResource = mapper.toResource(
                     specialtyService.update(mapper.toModel(resource)));

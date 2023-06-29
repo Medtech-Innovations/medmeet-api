@@ -3,7 +3,10 @@ package org.medtech.medmeet.schedule.service;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validator;
 import org.medtech.medmeet.schedule.domain.model.entity.Appointment;
+import org.medtech.medmeet.schedule.domain.model.entity.Doctor;
+import org.medtech.medmeet.schedule.domain.model.entity.Specialty;
 import org.medtech.medmeet.schedule.domain.persistence.AppointmentRepository;
+import org.medtech.medmeet.schedule.domain.persistence.DoctorRepository;
 import org.medtech.medmeet.schedule.domain.service.AppointmentService;
 import org.medtech.medmeet.shared.exception.ResourceNotFoundException;
 import org.medtech.medmeet.shared.exception.ResourceValidationException;
@@ -21,6 +24,9 @@ public class AppointmentServiceImpl implements AppointmentService {
 
     @Autowired
     private AppointmentRepository appointmentRepository;
+
+    @Autowired
+    private DoctorRepository doctorRepository;
 
     @Autowired
     private Validator validator;
@@ -55,6 +61,15 @@ public class AppointmentServiceImpl implements AppointmentService {
 
         if (givenDoctorId == null) {
             throw new ResourceValidationException("Doctor ID", "Assigned Doctor ID cannot be null. Provide a givenDoctorId parameter.");
+        }
+
+        Doctor doctor = doctorRepository.findById(givenDoctorId)
+                .orElseThrow(() -> new ResourceNotFoundException("Doctor", givenDoctorId));
+
+        appointment.setDoctor(doctor);
+
+        if (appointment.getId() != null) {
+            appointment.setId(null);
         }
 
         return appointmentRepository.save(appointment);
