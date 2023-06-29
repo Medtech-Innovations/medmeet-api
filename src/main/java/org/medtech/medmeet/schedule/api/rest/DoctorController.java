@@ -36,7 +36,7 @@ public class DoctorController {
 
     @PostMapping
     public DoctorResource save(@RequestBody CreateDoctorResource resource) {
-        return mapper.toResource(doctorService.save(mapper.toModel(resource), resource.getAssignedSpecialtyId()));
+        return mapper.toResource(doctorService.save(mapper.toModel(resource), resource.getGivenSpecialtyId()));
     }
 
     @PutMapping("{id}")
@@ -44,7 +44,7 @@ public class DoctorController {
                                                     @RequestBody UpdateDoctorResource resource) {
         if (id.equals(resource.getId())) {
             DoctorResource doctorResource = mapper.toResource(
-                    doctorService.updateSpecialty(mapper.toModel(resource), resource.getSpecialtyId()));
+                    doctorService.updateSpecialty(mapper.toModel(resource), resource.getGivenSpecialtyId()));
             return new ResponseEntity<>(doctorResource, HttpStatus.OK);
         } else {
             return ResponseEntity.badRequest().build();

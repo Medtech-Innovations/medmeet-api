@@ -52,18 +52,18 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public Doctor save(Doctor doctor, Integer assignedSpecialtyId) {
+    public Doctor save(Doctor doctor, Integer givenSpecialtyId) {
         Set<ConstraintViolation<Doctor>> violations = validator.validate(doctor);
         if (!violations.isEmpty()) {
             throw new ResourceValidationException(ENTITY, violations);
         }
 
-        if (assignedSpecialtyId == null) {
+        if (givenSpecialtyId == null) {
             throw new ResourceValidationException("Specialty ID", "Assigned Specialty ID cannot be null. Provide a assignedSpecialtyId parameter.");
         }
 
-        Specialty specialty = specialtyRepository.findById(assignedSpecialtyId)
-                .orElseThrow(() -> new ResourceNotFoundException("Specialty", assignedSpecialtyId));
+        Specialty specialty = specialtyRepository.findById(givenSpecialtyId)
+                .orElseThrow(() -> new ResourceNotFoundException("Specialty", givenSpecialtyId));
 
         doctor.setSpecialty(specialty);
 
