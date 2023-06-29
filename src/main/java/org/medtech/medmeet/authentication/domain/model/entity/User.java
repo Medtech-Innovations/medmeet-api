@@ -40,5 +40,10 @@ public class User {
     @Size(min = 2, max = 30)
     @Column(name = "password", length = 30, nullable = false)
     private String password;
+    public User(int i, String s, String s1, String s2, String s3) {
+    }
 
+    public User() {
+
+    }
 }
