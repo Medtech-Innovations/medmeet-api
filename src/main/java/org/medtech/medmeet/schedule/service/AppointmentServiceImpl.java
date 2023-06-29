@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -37,17 +38,25 @@ public class AppointmentServiceImpl implements AppointmentService {
 
     @Transactional(readOnly = true)
     @Override
-    public Appointment fetchById(Integer id) {
-        return appointmentRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException(ENTITY, id));
+    public Optional<Appointment> fetchById(Integer id) {
+        if (appointmentRepository.existsById(id)) {
+            return appointmentRepository.findById(id);
+        } else {
+            throw new ResourceNotFoundException(ENTITY, id);
+        }
     }
 
     @Override
-    public Appointment save(Appointment appointment) {
+    public Appointment save(Appointment appointment, Integer givenDoctorId) {
         Set<ConstraintViolation<Appointment>> violations = validator.validate(appointment);
         if (!violations.isEmpty()) {
             throw new ResourceValidationException(ENTITY, violations);
         }
+
+        if (givenDoctorId == null) {
+            throw new ResourceValidationException("Doctor ID", "Assigned Doctor ID cannot be null. Provide a givenDoctorId parameter.");
+        }
+
         return appointmentRepository.save(appointment);
     }
 
@@ -65,7 +74,8 @@ public class AppointmentServiceImpl implements AppointmentService {
                     appointmentToUpdate.setMinutesDuration(appointment.getMinutesDuration());
                     appointmentToUpdate.setAppointmentSessionUrl(appointment.getAppointmentSessionUrl());
                     appointmentToUpdate.setAppointmentPrescriptionUrl(appointment.getAppointmentPrescriptionUrl());
-                    appointmentToUpdate.setPaymentId(appointment.getPaymentId());
+                    appointmentToUpdate.setUserId(appointment.getUserId());
+                    appointmentToUpdate.setStatus(appointment.getStatus());
 
                     return appointmentRepository.save(appointmentToUpdate);
                 })

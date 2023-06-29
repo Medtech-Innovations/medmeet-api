@@ -1,6 +1,5 @@
 package org.medtech.medmeet.schedule.domain.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
@@ -26,44 +25,37 @@ public class Appointment {
 
     @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @Column(name = "appointment-date")
+    @Column(name = "appointment_date")
     @Temporal(TemporalType.DATE)
     private Date appointmentDate;
 
     @NotNull
-    @Column(name = "minutes-duration")
+    @Column(name = "minutes_duration")
     @PositiveOrZero(message = "Minutes duration must be positive or zero")
     private Integer minutesDuration;
 
     @NotNull
-    @Column(name = "appointment-session-url")
+    @Column(name = "appointment_session-url")
     @Size(max = 256, message = "Prescription URL should not exceed 256 characters")
     private String appointmentSessionUrl;
 
-    @Column(name = "appointment-prescription-url")
+    @Column(name = "appointment_prescription-url")
     @Size(max = 256, message = "Prescription URL should not exceed 256 characters")
     private String appointmentPrescriptionUrl;
 
+    @NotNull
+    @Column(name = "status")
+    private Boolean status;
+
     // Relationships
 
-    // From Payment Context
+    // From User Context
     @NotNull
-    @Column(name = "payment-id")
-    private Integer paymentId;
+    private Integer userId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "doctor-id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "doctor_id")
     private Doctor doctor;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "patient-id")
-    private Patient patient;
-
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "status-id")
-    private Status status;
-
 
     @PrePersist
     public void prePersist() {

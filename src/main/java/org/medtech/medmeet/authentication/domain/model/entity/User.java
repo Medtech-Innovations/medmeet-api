@@ -40,10 +40,19 @@ public class User {
     @Size(min = 2, max = 30)
     @Column(name = "password", length = 30, nullable = false)
     private String password;
+  
+    @NotNull
+    @NotBlank
+    @Size(min = 1, max = 512)
+    @Column(name = "profile_image_url", nullable = false)
+    private String profileImageUrl;
+
+    @NotNull
+    @Column(name = "is_patient", nullable = false)
+    private Boolean isPatient;
+  
     public User(int i, String s, String s1, String s2, String s3) {
     }
-
     public User() {
 
     }
-}

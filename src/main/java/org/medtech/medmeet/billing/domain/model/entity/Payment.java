@@ -9,7 +9,6 @@ import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 import org.medtech.medmeet.schedule.domain.model.entity.Appointment;
-import org.medtech.medmeet.schedule.domain.model.entity.Patient;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
