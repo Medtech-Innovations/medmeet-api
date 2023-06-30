@@ -31,7 +31,7 @@ public class UserController {
             @ApiResponse(description = "Successfully fetched all users",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = AppointmentResource.class)))
+                            schema = @Schema(implementation = UserResource.class)))
     })
     @GetMapping
     public List<User> fetchAll() {
@@ -42,7 +42,7 @@ public class UserController {
             @ApiResponse(description = "Successfully fetched user by id",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = AppointmentResource.class)))
+                            schema = @Schema(implementation = UserResource.class)))
     })
     @GetMapping("{id}")
     public UserResource fetchById(@PathVariable Integer id) {
@@ -53,7 +53,7 @@ public class UserController {
             @ApiResponse(description = "User successfully created",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = AppointmentResource.class)))
+                            schema = @Schema(implementation = UserResource.class)))
     })
     @PostMapping
     public UserResource save(@RequestBody CreateUserResource resource) {
@@ -64,7 +64,7 @@ public class UserController {
             @ApiResponse(description = "Successfully updated user by id",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = AppointmentResource.class)))
+                            schema = @Schema(implementation = UserResource.class)))
     })
     @PutMapping("{id}")
     public ResponseEntity<UserResource> update(@PathVariable Integer id, @RequestBody UpdateUserResource resource) {
@@ -81,7 +81,7 @@ public class UserController {
             @ApiResponse(description = "Successfully deleted user by id",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = AppointmentResource.class)))
+                            schema = @Schema(implementation = UserResource.class)))
     })
     @DeleteMapping("{id}")
     public ResponseEntity<?> delete(@PathVariable Integer id) {
