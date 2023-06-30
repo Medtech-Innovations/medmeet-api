@@ -28,4 +28,9 @@ public class Notification {
     @JsonIgnore
     @OneToOne
     private Detail detail;
+
+    public Notification(int i, String s){
+    }
+    public Notification(){
+    }
 }
