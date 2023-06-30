@@ -32,7 +32,7 @@ public class PaymentController {
             @ApiResponse(description = "Successfully fetched all payments",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = AppointmentResource.class)))
+                            schema = @Schema(implementation = PaymentResource.class)))
     })
     @GetMapping
     public List<Payment> fetchAll() {
@@ -43,7 +43,7 @@ public class PaymentController {
             @ApiResponse(description = "Successfully fetched payment by id",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = AppointmentResource.class)))
+                            schema = @Schema(implementation = PaymentResource.class)))
     })
     @GetMapping("{id}")
     public PaymentResource fetchId(@PathVariable Integer id) {
@@ -54,7 +54,7 @@ public class PaymentController {
             @ApiResponse(description = "Payment successfully created",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = AppointmentResource.class)))
+                            schema = @Schema(implementation = PaymentResource.class)))
     })
     @PostMapping
     public PaymentResource save(@RequestBody CreatePaymentResource resource) {
@@ -65,7 +65,7 @@ public class PaymentController {
             @ApiResponse(description = "Successfully updated payment by id",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = AppointmentResource.class)))
+                            schema = @Schema(implementation = PaymentResource.class)))
     })
     @PutMapping("{id}")
     public ResponseEntity<PaymentResource> update(@PathVariable Integer id,
@@ -83,7 +83,7 @@ public class PaymentController {
             @ApiResponse(description = "Successfully deleted payment by id",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = AppointmentResource.class)))
+                            schema = @Schema(implementation = PaymentResource.class)))
     })
     @DeleteMapping("{id}")
     public ResponseEntity<?> delete(@PathVariable Integer id) {
