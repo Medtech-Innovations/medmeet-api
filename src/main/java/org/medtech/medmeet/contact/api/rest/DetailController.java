@@ -31,7 +31,7 @@ public class DetailController {
             @ApiResponse(description = "Successfully fetched all details",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = AppointmentResource.class)))
+                            schema = @Schema(implementation = DetailResource.class)))
     })
     @GetMapping
     public List<Detail> fetchAll(){
@@ -42,7 +42,7 @@ public class DetailController {
             @ApiResponse(description = "Successfully fetched detail by id",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = AppointmentResource.class)))
+                            schema = @Schema(implementation = DetailResource.class)))
     })
     @GetMapping({"{id}"})
     public  DetailResource fetchId(@PathVariable Integer id) {
@@ -53,7 +53,7 @@ public class DetailController {
             @ApiResponse(description = "Detail successfully created",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = AppointmentResource.class)))
+                            schema = @Schema(implementation = DetailResource.class)))
     })
     @PostMapping
     public DetailResource save(@RequestBody CreateDetailResource resource){
@@ -64,7 +64,7 @@ public class DetailController {
             @ApiResponse(description = "Successfully updated detail by id",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = AppointmentResource.class)))
+                            schema = @Schema(implementation = DetailResource.class)))
     })
     @PutMapping("{id}")
     public ResponseEntity<DetailResource>update(@PathVariable Integer id,
@@ -82,7 +82,7 @@ public class DetailController {
             @ApiResponse(description = "Successfully deleted detail by id",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = AppointmentResource.class)))
+                            schema = @Schema(implementation = DetailResource.class)))
     })
     @DeleteMapping("{id}")
     public ResponseEntity<?> delete(@PathVariable Integer id) {

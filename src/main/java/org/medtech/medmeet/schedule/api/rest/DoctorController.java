@@ -35,7 +35,7 @@ public class DoctorController {
             @ApiResponse(description = "Successfully fetched all doctors",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = AppointmentResource.class)))
+                            schema = @Schema(implementation = DoctorResource.class)))
     })
     @GetMapping
     public List<Doctor> fetchAll() {
@@ -46,7 +46,7 @@ public class DoctorController {
             @ApiResponse(description = "Successfully fetched doctor by id",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = AppointmentResource.class)))
+                            schema = @Schema(implementation = DoctorResource.class)))
     })
     @GetMapping("{id}")
     public DoctorResource fetchById(@PathVariable Integer id) {
@@ -57,7 +57,7 @@ public class DoctorController {
             @ApiResponse(description = "Doctor successfully created",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = AppointmentResource.class)))
+                            schema = @Schema(implementation = DoctorResource.class)))
     })
     @PostMapping
     public DoctorResource save(@RequestBody CreateDoctorResource resource) {
@@ -68,7 +68,7 @@ public class DoctorController {
             @ApiResponse(description = "Successfully updated doctor by id",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = AppointmentResource.class)))
+                            schema = @Schema(implementation = DoctorResource.class)))
     })
     @PutMapping("{id}")
     public ResponseEntity<DoctorResource> update(@PathVariable Integer id,
@@ -86,7 +86,7 @@ public class DoctorController {
             @ApiResponse(description = "Successfully deleted doctor by id",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = AppointmentResource.class)))
+                            schema = @Schema(implementation = DoctorResource.class)))
     })
     @DeleteMapping("{id}")
     public ResponseEntity<?> delete(@PathVariable Integer id) {

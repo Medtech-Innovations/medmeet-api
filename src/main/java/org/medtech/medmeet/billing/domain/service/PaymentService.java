@@ -6,7 +6,7 @@ import java.util.Optional;
 
 public interface PaymentService {
     List<Payment> fetchAll();
-    Payment fetchById(Integer id);
+    Optional<Payment> fetchById(Integer id);
     Payment update(Payment payment);
     Payment save(Payment payment);
     boolean deleteById(Integer id);

@@ -32,7 +32,7 @@ public class QuestionController {
             @ApiResponse(description = "Question successfully created",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = AppointmentResource.class)))
+                            schema = @Schema(implementation = QuestionResource.class)))
     })
     @PostMapping
     public QuestionResource save(@RequestBody CreateQuestionResource resource){
@@ -43,7 +43,7 @@ public class QuestionController {
             @ApiResponse(description = "Successfully fetched all questions",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = AppointmentResource.class)))
+                            schema = @Schema(implementation = QuestionResource.class)))
     })
     @GetMapping
     public List<Question> fetchAll(){
@@ -54,7 +54,7 @@ public class QuestionController {
             @ApiResponse(description = "Successfully fetched question by id",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = AppointmentResource.class)))
+                            schema = @Schema(implementation = QuestionResource.class)))
     })
     @GetMapping("{id}")
     public QuestionResource fetchId(@PathVariable Integer id){
@@ -65,7 +65,7 @@ public class QuestionController {
             @ApiResponse(description = "Successfully updated question by id",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = AppointmentResource.class)))
+                            schema = @Schema(implementation = QuestionResource.class)))
     })
     @PutMapping("{id}")
     public ResponseEntity<QuestionResource> update(@PathVariable Integer id,
@@ -83,7 +83,7 @@ public class QuestionController {
             @ApiResponse(description = "Successfully deleted question by id",
                     responseCode = "201",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = AppointmentResource.class)))
+                            schema = @Schema(implementation = QuestionResource.class)))
     })
     @DeleteMapping("{id}")
     public ResponseEntity<?> delete(@PathVariable Integer id) {
