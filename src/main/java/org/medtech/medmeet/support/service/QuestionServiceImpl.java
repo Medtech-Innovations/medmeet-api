@@ -16,7 +16,7 @@ import java.util.Optional;
 import java.util.Set;
 
 @Service
-public class QuestionImpl implements QuestionService {
+public class QuestionServiceImpl implements QuestionService {
 
     private static final String ENTITY = "Question";
 
@@ -26,12 +26,16 @@ public class QuestionImpl implements QuestionService {
     @Autowired
     private Validator validator;
 
+    public QuestionServiceImpl(QuestionRepository _questionRepository, Validator _validator){
+        this.questionRepository = _questionRepository;
+        this.validator = _validator;
+    }
+
     @Transactional(readOnly = true)
     @Override
     public List<Question> fetchAll() {
         return questionRepository.findAll();
     }
-
 
     @Transactional(readOnly = true)
     @Override
@@ -41,6 +45,12 @@ public class QuestionImpl implements QuestionService {
         }else{
             throw new ResourceNotFoundException(ENTITY,id);
         }
+    }
+
+    @Transactional(readOnly = true)
+    public List<Question> countIds() {
+        List<Question> questionList = questionRepository.findAll();
+        return questionList;
     }
 
     @Transactional
