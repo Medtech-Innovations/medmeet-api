@@ -41,7 +41,6 @@ public class AppointmentServiceImplTest {
         Assertions.assertEquals(expected.get(0).getAppointmentSessionUrl(), actual.get(0).getAppointmentSessionUrl());
         Assertions.assertEquals(expected.get(0).getAppointmentPrescriptionUrl(), actual.get(0).getAppointmentPrescriptionUrl());
         Assertions.assertEquals(expected.get(0).getUserId(), actual.get(0).getUserId());
-        Assertions.assertEquals(expected.get(0).getPaymentId(), actual.get(0).getPaymentId());
     }
 
     @Test
@@ -62,7 +61,6 @@ public class AppointmentServiceImplTest {
         Assertions.assertEquals(expected.get().getAppointmentSessionUrl(), actual.get().getAppointmentSessionUrl());
         Assertions.assertEquals(expected.get().getAppointmentPrescriptionUrl(), actual.get().getAppointmentPrescriptionUrl());
         Assertions.assertEquals(expected.get().getUserId(), actual.get().getUserId());
-        Assertions.assertEquals(expected.get().getPaymentId(), actual.get().getPaymentId());
     }
 
     public List<Appointment> expectedListAppointments() {
@@ -77,7 +75,6 @@ public class AppointmentServiceImplTest {
         appointment.setMinutesDuration(120);
         appointment.setAppointmentSessionUrl("https://www.google.com");
         appointment.setAppointmentPrescriptionUrl("https://www.prescription.com");
-        appointment.setPaymentId(1);
         appointment.setUserId(1);
         appointment.setDoctor(doctor);
         appointment.setStatus(true);
@@ -96,7 +93,6 @@ public class AppointmentServiceImplTest {
         appointment.setMinutesDuration(120);
         appointment.setAppointmentSessionUrl("https://www.google.com");
         appointment.setAppointmentPrescriptionUrl("https://www.prescription.com");
-        appointment.setPaymentId(1);
         appointment.setUserId(1);
         appointment.setDoctor(doctor);
         appointment.setStatus(true);
@@ -121,7 +117,6 @@ public class AppointmentServiceImplTest {
         appointment.setMinutesDuration(120);
         appointment.setAppointmentSessionUrl("https://www.google.com");
         appointment.setAppointmentPrescriptionUrl("https://www.prescription.com");
-        appointment.setPaymentId(1);
         appointment.setUserId(1);
         appointment.setDoctor(doctor);
         appointment.setStatus(true);
