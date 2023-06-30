@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -38,9 +39,12 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Transactional(readOnly = true)
     @Override
-    public Payment fetchById(Integer id) {
-        return paymentRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException(ENTITY, id));
+    public Optional<Payment> fetchById(Integer id) {
+        if (paymentRepository.existsById(id)) {
+            return paymentRepository.findById(id);
+        } else {
+            throw new ResourceNotFoundException(ENTITY, id);
+        }
     }
 
     @Override

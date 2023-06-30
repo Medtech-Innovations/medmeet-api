@@ -47,7 +47,7 @@ public class PaymentController {
     })
     @GetMapping("{id}")
     public PaymentResource fetchId(@PathVariable Integer id) {
-        return this.mapper.toResource(paymentService.fetchById(id));
+        return this.mapper.toResource(paymentService.fetchById(id).get());
     }
 
     @Operation(summary = "Save a payment", responses = {
